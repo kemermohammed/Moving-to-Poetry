@@ -1,3 +1,5 @@
+"""Kattis puzzle problem solution."""
+
 from collections import deque
 
 def solve(grid: list[str]) -> int:

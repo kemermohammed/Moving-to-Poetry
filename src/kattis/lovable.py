@@ -1,3 +1,5 @@
+"""Kattis lvable problem solution."""
+
 def make_lvable(s: str) -> int:
     """
     https://open.kattis.com/problems/lv-able

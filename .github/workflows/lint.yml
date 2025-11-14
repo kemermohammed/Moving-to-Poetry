@@ -1,0 +1,30 @@
+name: Lint
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  pylint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    - name: Install Poetry
+      uses: abatilo/actions-poetry@v2
+      with:
+        poetry-version: "latest"
+
+    - name: Install dependencies
+      run: poetry install --no-interaction --no-root
+
+    - name: Run PyLint
+      run: poetry run pylint src/kattis 

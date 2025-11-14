@@ -1,6 +1,8 @@
-def atm_results(K: int, requests: list) -> str:
+"""Kattis atmmachine problem solution."""
+
+def atm_results(k: int, requests: list) -> str:
     result = []
-    money = K
+    money = k
 
     for r in requests:
         if money >= r:

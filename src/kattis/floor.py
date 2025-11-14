@@ -1,3 +1,5 @@
+"""Kattis floor problem solution."""
+
 def solve(true_floor: int) -> int:
     """
     Kattis problem: https://open.kattis.com/problems/13thfloor

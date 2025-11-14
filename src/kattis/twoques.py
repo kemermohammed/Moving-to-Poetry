@@ -1,3 +1,5 @@
+"""Kattis twoques problem solution."""
+
 def faster_queue(left_times: list[int], right_times: list[int]) -> str:
     """
     https://open.kattis.com/problems/ataleoftwoqueues
@@ -7,6 +9,6 @@ def faster_queue(left_times: list[int], right_times: list[int]) -> str:
 
     if L < R:
         return "left"
-    elif R < L:
+    if R < L:
         return "right"
     return "either"
