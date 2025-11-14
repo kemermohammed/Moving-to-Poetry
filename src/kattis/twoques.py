@@ -5,11 +5,11 @@ def faster_queue(left_times: list[int], right_times: list[int]) -> str:
     """
     https://open.kattis.com/problems/ataleoftwoqueues
     """
-    L = sum(left_times)
-    R = sum(right_times)
+    l = sum(left_times)
+    r = sum(right_times)
 
-    if L < R:
+    if l < r:
         return "left"
-    if R < L:
+    if r < l:
         return "right"
     return "either"

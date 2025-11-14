@@ -3,6 +3,7 @@
 import math
 
 
-def fence_length(A: float) -> float:
+def fence_length(a: float) -> float:
+    """Solve the Kattis 'real' problem."""
 
-    return 4 * math.sqrt(A)
+    return 4 * math.sqrt(a)
