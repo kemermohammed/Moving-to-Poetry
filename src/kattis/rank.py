@@ -1,5 +1,6 @@
 """Kattis rank problem solution."""
 
+
 def solve(n: int, games: list[tuple[str, str]]) -> list[str]:
     """
     Kattis problem: https://open.kattis.com/problems/rankproblem

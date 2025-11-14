@@ -1,5 +1,6 @@
 """Kattis twoques problem solution."""
 
+
 def faster_queue(left_times: list[int], right_times: list[int]) -> str:
     """
     https://open.kattis.com/problems/ataleoftwoqueues

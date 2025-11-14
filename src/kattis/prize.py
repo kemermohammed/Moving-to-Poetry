@@ -1,5 +1,6 @@
 """Kattis prize problem solution."""
 
+
 def max_items_no_prize(prices: list[int], x: int) -> int:
     """
     https://open.kattis.com/problems/aprizenoonecanwin

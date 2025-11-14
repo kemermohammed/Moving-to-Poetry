@@ -1,5 +1,6 @@
 """Kattis cocktail problem solution."""
 
+
 def solve(n: int, d: int, durations: list[int]) -> str:
     """
     Kattis problem: https://open.kattis.com/problems/cocktail

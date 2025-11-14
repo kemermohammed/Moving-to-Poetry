@@ -2,6 +2,7 @@
 
 from collections import deque
 
+
 def solve(grid: list[str]) -> int:
     """
     Kattis problem: https://open.kattis.com/problems/3puzzle
@@ -12,7 +13,7 @@ def solve(grid: list[str]) -> int:
     Returns: minimum number of moves to reach '12345678-' configuration.
     """
 
-    start = "".join(grid)      # Convert rows to a single string
+    start = "".join(grid)  # Convert rows to a single string
     target = "12345678-"
 
     if start == target:
@@ -20,9 +21,15 @@ def solve(grid: list[str]) -> int:
 
     # Possible moves based on blank position
     neighbors = {
-        0: [1, 3],        1: [0, 2, 4],    2: [1, 5],
-        3: [0, 4, 6],     4: [1, 3, 5, 7], 5: [2, 4, 8],
-        6: [3, 7],        7: [4, 6, 8],    8: [5, 7]
+        0: [1, 3],
+        1: [0, 2, 4],
+        2: [1, 5],
+        3: [0, 4, 6],
+        4: [1, 3, 5, 7],
+        5: [2, 4, 8],
+        6: [3, 7],
+        7: [4, 6, 8],
+        8: [5, 7],
     }
 
     q = deque([(start, start.index("-"), 0)])

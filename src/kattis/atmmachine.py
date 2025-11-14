@@ -1,5 +1,6 @@
 """Kattis atmmachine problem solution."""
 
+
 def atm_results(k: int, requests: list) -> str:
     result = []
     money = k
