@@ -1,63 +1,56 @@
-name: Run Tests and Coverage
+name: Tests and Coverage Badge
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
 
+permissions:
+  contents: write     # Required to push coverage badge
+
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      # ------------------------------
-      # Checkout repository
-      # ------------------------------
-      - name: Check out repository
-        uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      # ------------------------------
-      # Install Python
-      # ------------------------------
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
 
-      # ------------------------------
-      # Install Poetry
-      # ------------------------------
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
+    - name: Install Poetry
+      uses: abatilo/actions-poetry@v2
+      with:
+        poetry-version: "latest"
 
-      # ------------------------------
-      # Install dependencies
-      # ------------------------------
-      - name: Install dependencies
-        run: poetry install --no-interaction --no-root
+    - name: Install dependencies
+      run: poetry install --no-interaction --no-root
 
-      # Install your project
-      - name: Install project
-        run: poetry install --no-interaction
+    - name: Install project
+      run: poetry install
 
-      # ------------------------------
-      # Run tests + coverage
-      # ------------------------------
-      - name: Run tests with coverage
-        run: |
-          poetry run coverage run -m pytest
-          poetry run coverage xml
-          poetry run coverage report -m
+    - name: Run tests with coverage
+      run: |
+        poetry run coverage run -m pytest
+        poetry run coverage xml
+        poetry run coverage report -m
+        poetry run pip install coverage-badge
+        poetry run coverage-badge -o coverage.svg -f
 
-      # ------------------------------
-      # Upload coverage to Codecov
-      # ------------------------------
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.xml
-          fail_ci_if_error: true
+    - name: Add badge to README if missing
+      run: |
+        if ! grep -q "coverage.svg" README.md; then
+          echo "Adding coverage badge..."
+          sed -i '1s/^/![Coverage](coverage.svg)\n\n/' README.md
+        fi
+
+    - name: Commit coverage badge
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "bot@github.com"
+        git add coverage.svg README.md || true
+        git commit -m "Update coverage badge" || true
+        git push || true
