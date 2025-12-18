@@ -8,7 +8,7 @@ def solve(grid: list[str]) -> int:
     Kattis problem: https://open.kattis.com/problems/3puzzle
 
     grid: list of 3 strings, each length 3
-          e.g. ["2-", "13", "3"]
+        e.g. ["2-", "13", "3"]
 
     Returns: minimum number of moves to reach '12345678-' configuration.
     """

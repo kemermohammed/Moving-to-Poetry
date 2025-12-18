@@ -1,25 +1,11 @@
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
-pytest_cache/
-.cache/
-coverage.xml
-coverage.svg
-dist/
-build/
-*.egg-info/
-.poetry/
-.env
-.venv
 
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.sqlite3
-*.log
+# Coverage
+.coverage
+htmlcov/
 
 # Poetry
 .poetry/
@@ -35,7 +21,3 @@ env/
 .vscode/
 .idea/
 .DS_Store
-
-# Coverage
-.coverage
-htmlcov/
