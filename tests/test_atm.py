@@ -1,5 +1,6 @@
 from kattis.atmmachine import atm_results
 
+
 def test_atm_basic():
     # k = 10, requests that can be fully withdrawn
     k = 10
@@ -12,6 +13,7 @@ def test_atm_basic():
     expected = "11010"
     assert atm_results(k, requests) == expected
 
+
 def test_atm_all_fail():
     # k too small, all requests fail
     k = 0
@@ -19,12 +21,14 @@ def test_atm_all_fail():
     expected = "000"
     assert atm_results(k, requests) == expected
 
+
 def test_atm_exact_withdraw():
     # withdrawals match exactly k
     k = 6
     requests = [2, 2, 2]
     expected = "111"
     assert atm_results(k, requests) == expected
+
 
 def test_atm_partial_fail():
     # k runs out during requests
