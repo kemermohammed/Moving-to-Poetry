@@ -11,3 +11,31 @@ build/
 .poetry/
 .env
 .venv
+
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.log
+
+# Poetry
+.poetry/
+poetry.lock
+
+# Virtual environments
+.env
+.venv/
+venv/
+env/
+
+# IDE / Editor files
+.vscode/
+.idea/
+.DS_Store
+
+# Coverage
+.coverage
+htmlcov/
